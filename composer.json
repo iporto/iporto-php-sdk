@@ -14,7 +14,13 @@
       "email": "otavio@iporto.com"
     }
   ],
-  "minimum-stability": "dev",
+  "keywords": [
+    "iporto",
+    "email",
+    "transacional",
+    "marketing",
+    "iaas"
+  ],
   "autoload": {
     "psr-0": {
       "iPORTO": "src/"
