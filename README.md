@@ -7,7 +7,7 @@ Composer ajuda no gerenciamento de dependências em projetos PHP. Veja mais deta
 Adicione este pacote (`iporto/iporto-php-sdk`) ao seu `composer.json`, ou apenas execute a linha de comando abaixo:
 
 ```
-$ ./composer.phar require iporto/iporto-php-sdk
+$ ./composer.phar require iporto/iporto-php-sdk:dev-main
 ```
 
 ## Uso
