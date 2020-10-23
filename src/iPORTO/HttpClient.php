@@ -23,8 +23,7 @@ class HttpClient
    *
    * @var string
    */
-  // private const BASE_URL = 'https://api.iporto.com.br/api';
-  private const BASE_URL = 'http://api.iporto.io/api';
+  private const BASE_URL = 'https://api.iporto.com.br/api';
 
   /**
    * The default user agent header.
