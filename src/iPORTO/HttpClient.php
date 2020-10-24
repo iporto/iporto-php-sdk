@@ -49,10 +49,8 @@ class HttpClient
       ],
     ]);
 
-    if ($response->getStatusCode() == 401) {
-      return json_encode([
-        'errors' => 'token de autenticação inválido/expirado.',
-      ]);
+    if ($response->getStatusCode() != 200) {
+      return json_decode($response->getContent(false));
     }
 
     if ($response->getStatusCode() == 200) {
@@ -72,10 +70,8 @@ class HttpClient
       ],
     ]);
 
-    if ($response->getStatusCode() == 401) {
-      return json_encode([
-        'errors' => 'token de autenticação inválido/expirado.',
-      ]);
+    if ($response->getStatusCode() != 200) {
+      return json_decode($response->getContent(false));
     }
 
     if ($response->getStatusCode() == 200) {
