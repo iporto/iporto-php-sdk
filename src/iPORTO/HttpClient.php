@@ -63,7 +63,7 @@ class HttpClient
   public function httpPost($url, array $query = [])
   {
     $response = $this->httpClient->request('POST', self::BASE_URL . $url, [
-      'query' => $query,
+      'body' => $query,
       'headers' => [
         'Accept' => 'application/json',
         'User-Agent' => self::USER_AGENT,
