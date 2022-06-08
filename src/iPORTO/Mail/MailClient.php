@@ -423,13 +423,15 @@ class MailClient extends Client
    *
    * @param  mixed $track_open | contabilizar aberturas.
    * @param  mixed $track_link | contabilizar cliques.
+   * @param  mixed $track_host | host (DNS).
    * @return array
    */
-  public function setTrackingSettings($track_open, $track_link)
+  public function setTrackingSettings($track_open, $track_link, $track_host)
   {
     $this->tracking_settings = [
       'track_open' => $track_open ? 'yes' : 'no',
       'track_link' => $track_link ? 'yes' : 'no',
+      'track_host' => $track_host ? $track_host : 'no',
     ];
   }
 
