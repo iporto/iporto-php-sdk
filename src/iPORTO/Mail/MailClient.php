@@ -116,6 +116,13 @@ class MailClient extends Client
   private $tracking_settings;
 
   /**
+   * redirect_type
+   *
+   * @var mixed
+   */
+  private $redirect_type = "SERVER";
+
+  /**
    * __construct
    *
    * @param  mixed $params
@@ -436,6 +443,31 @@ class MailClient extends Client
   }
 
   /**
+   * getRedirectType
+   *
+   * @return string
+   */
+  public function getRedirectType()
+  {
+    return $this->redirect_type;
+  }
+
+  /**
+   * setRedirectType
+   *
+   * @param  mixed $redirect_type | tipo de redirect ao abrir link (SERVER,HTM).
+   * @return void
+   */
+  public function setRedirectType($redirect_type)
+  {
+    if ($redirect_type != 'SERVER' && $redirect_type != 'HTM') {
+      $this->redirect_type = 'SERVER';
+    } else {
+      $this->redirect_type = $redirect_type;
+    }
+  }
+
+  /**
    * send
    *
    * @return object
@@ -456,6 +488,7 @@ class MailClient extends Client
       'email_headers_tags' => implode(",", $this->getEmailHeadersTags()),
       'send_at' => Carbon::now(),
       'tracking_settings' => $this->getTrackingSettings(),
+      'redirect_type' => $this->getRedirectType(),
     ]);
 
     return $data;
