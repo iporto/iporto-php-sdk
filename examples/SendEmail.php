@@ -29,6 +29,7 @@ $objMail->setEmailSubject('iPORTO: ' . date('H:i:s'));
 $objMail->setEmailHeaders(['X-API-Company: iPORTO', 'X-API-SDK: PHP']);
 $objMail->setEmailHeadersTags(['iPORTO', 'API', 'External']);
 $objMail->setTrackingSettings(true, true, 'track-s1');
+$objMail->setRedirectType('HTM'); // SERVER | HTM
 $setMail = $objMail->send();
 
 dd($setMail);
