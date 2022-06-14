@@ -3,6 +3,7 @@
 require dirname(__FILE__) . '/../vendor/autoload.php';
 
 use iPORTO\Mail\MailClient;
+use iPORTO\Storage\File;
 
 /**
  * Token gerado em: https://app.iporto.com.br/panel/api
@@ -30,6 +31,21 @@ $objMail->setEmailHeaders(['X-API-Company: iPORTO', 'X-API-SDK: PHP']);
 $objMail->setEmailHeadersTags(['iPORTO', 'API', 'External']);
 $objMail->setTrackingSettings(true, true, 'track-s1');
 $objMail->setRedirectType('SERVER');
+
+// Arquivo 1
+$fileObject = new File([
+  'auth_bearer' => $auth_bearer,
+]);
+$attachment = $fileObject->file('files/iporto-logo.png');
+$objMail->setEmailAttachments($attachment);
+
+// Arquivo 2
+$fileObject = new File([
+  'auth_bearer' => $auth_bearer,
+]);
+$attachment = $fileObject->file('files/iporto-presentation.pdf');
+$objMail->setEmailAttachments($attachment);
+
 $setMail = $objMail->send();
 
 dd($setMail);
