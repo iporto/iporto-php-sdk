@@ -81,11 +81,11 @@ class MailClient extends Client
   private $email_subject;
 
   /**
-   * email_attachaments
+   * email_attachments
    *
    * @var mixed
    */
-  private $email_attachaments;
+  private $email_attachments = [];
 
   /**
    * email_headers
@@ -312,28 +312,24 @@ class MailClient extends Client
   }
 
   /**
-   * ? @TODO: Função ainda não implementada.
-   *
-   * getEmailAttachaments
+   * getEmailAttachments
    *
    * @return array
    */
-  public function getEmailAttachaments()
+  public function getEmailAttachments()
   {
-    return $this->email_attachaments;
+    return $this->email_attachments;
   }
 
   /**
-   * ? @TODO: Função ainda não implementada.
-   *
-   * setEmailAttachaments
+   * setEmailAttachments
    *
    * @param  mixed $value
    * @return void
    */
-  public function setEmailAttachaments(array $value)
+  public function setEmailAttachments(array $value)
   {
-    $this->email_attachaments = $value;
+    array_push($this->email_attachments, $value);
   }
 
   /**
@@ -483,7 +479,7 @@ class MailClient extends Client
       'email_html_body' => $this->getEmailHtmlBody(),
       'email_reply_to' => $this->getEmailReplyTo(),
       'email_subject' => $this->getEmailSubject(),
-      'email_attachaments' => null,
+      'email_attachments' => $this->getEmailAttachments(),
       'email_headers' => $this->getEmailHeaders(),
       'email_headers_tags' => implode(",", $this->getEmailHeadersTags()),
       'send_at' => Carbon::now(),

@@ -5,7 +5,8 @@
   "require": {
     "php": "^7.2.5",
     "symfony/http-client": "^5.1",
-    "nesbot/carbon": "^2.0@dev"
+    "nesbot/carbon": "^2.0@dev",
+    "symfony/mime": "^5.4"
   },
   "license": "Apache-2.0",
   "authors": [

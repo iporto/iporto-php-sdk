@@ -80,4 +80,22 @@ class HttpClient
 
     return $response;
   }
+
+  public function httpUpload($url, \Symfony\Component\Mime\Part\Multipart\FormDataPart $body)
+  {
+    $response = $this->httpClient->request('POST', self::BASE_URL . $url, [
+      'headers' => array_merge($body->getPreparedHeaders()->toArray(), ['User-Agent: ' . self::USER_AGENT]),
+      'body' => $body->bodyToIterable(),
+    ]);
+
+    if ($response->getStatusCode() != 200) {
+      return json_decode($response->getContent(false));
+    }
+
+    if ($response->getStatusCode() == 200) {
+      return json_decode($response->getContent());
+    }
+
+    return $response;
+  }
 }
